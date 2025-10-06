@@ -1,0 +1,35 @@
+/* Register Button Animation */
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.register-button {
+  animation: scaleAnimation 1.0s ease-in-out infinite;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(0, 181, 79);
+  text-align: center;
+}
+
+/* Navigation Link Styles */
+.nav-link {
+  display: inline-block;
+  word-break: break-word;
+  background-size: cover;
+  background-position: center center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
