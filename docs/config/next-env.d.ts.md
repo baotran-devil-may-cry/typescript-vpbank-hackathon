@@ -189,10 +189,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 ## Common Issues and Solutions
 
 ### Issue: TypeScript Errors After Adding Routes
+
 **Problem**: New routes not recognized by TypeScript
 **Solution**: Restart the development server to regenerate types
 
 ### Issue: Image Import Errors
+
 **Problem**: Static image imports show TypeScript errors
 **Solution**: Ensure `next-env.d.ts` is included in `tsconfig.json`
 

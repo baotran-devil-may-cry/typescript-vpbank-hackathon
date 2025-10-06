@@ -36,6 +36,7 @@ interface FeatureCard {
 ```
 
 Each feature card contains:
+
 - **Icon**: SVG icon representing the feature
 - **Title**: Short descriptive title
 - **Description**: Detailed explanation of the benefit
@@ -64,7 +65,7 @@ const features: FeatureCard[] = [
 
 ### Layout Structure
 
-```
+```text
 About Section
 ├── Container (max-width with padding)
 │   ├── Section Header (centered)
@@ -112,8 +113,9 @@ Explains the hackathon's purpose and significance in the Vietnamese FinTech land
 ### Technology Tags
 
 Visual tags highlighting key technologies:
+
 - `#FinTech`
-- `#Innovation` 
+- `#Innovation`
 - `#Banking`
 - `#Technology`
 
@@ -129,6 +131,7 @@ Four main benefits of participating:
 ### Visual Elements
 
 The right side features a gradient card showcasing:
+
 - Security & Safety (Blockchain and AI)
 - User Experience (Modern UX/UI)
 - API Integration (VPBank system connectivity)

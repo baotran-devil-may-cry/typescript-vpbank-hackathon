@@ -1,11 +1,13 @@
 # Challenges Component
 
 ## Overview
+
 The Challenges component showcases the different hackathon tracks and challenges available for participants. Each challenge has specific requirements, technologies, and prize amounts.
 
 ## Features
 
 ### Challenge Categories
+
 The component displays 6 main challenges:
 
 1. **FinTech Innovation Challenge** (Advanced)
@@ -39,6 +41,7 @@ The component displays 6 main challenges:
    - Technologies: Any Technology, Creative Solutions, Innovation
 
 ### Difficulty Levels
+
 - **Beginner** (Green): Entry-level challenges
 - **Intermediate** (Yellow): Moderate complexity
 - **Advanced** (Red): High complexity requiring expert skills
@@ -46,6 +49,7 @@ The component displays 6 main challenges:
 ## Technical Implementation
 
 ### Component Structure
+
 ```typescript
 interface Challenge {
   id: string;
@@ -60,10 +64,12 @@ interface Challenge {
 ```
 
 ### Key Functions
+
 - `getDifficultyColor()`: Returns CSS classes for difficulty level styling
 - Challenge cards with hover effects and interactive elements
 
 ### Visual Design
+
 - **Grid Layout**: 2-column grid on large screens, single column on mobile
 - **Challenge Cards**: Clean white cards with borders and hover effects
 - **Icon System**: Custom SVG icons for each challenge category
@@ -71,26 +77,32 @@ interface Challenge {
 - **Prize Display**: Prominent prize amount in green color
 
 ### Interactive Elements
+
 - **Hover Effects**: Cards lift and change border color on hover
 - **Challenge Selection**: "Chọn thử thách" buttons for each challenge
 - **Call-to-Action**: Registration button in the rules section
 
 ## Rules and Guidelines Section
+
 The component includes a dedicated section explaining:
+
 - Teams can choose up to 2 challenges
 - 48-hour development timeframe
 - Open source requirement (GitHub)
 - 5-minute demo presentation requirement
 
 ## Prize Information
+
 - **Total Prize Pool**: 1+ billion VNĐ
 - **Individual Prizes**: Range from 150M to 500M VNĐ
 - **Clear Prize Display**: Each challenge shows its specific prize amount
 
 ## Usage
+
 The Challenges component helps participants understand available tracks, choose appropriate challenges based on their skills, and provides clear information about requirements and rewards.
 
 ## Accessibility
+
 - Semantic HTML with proper heading structure
 - Color-coded difficulty levels with text labels
 - Clear visual hierarchy and readable typography

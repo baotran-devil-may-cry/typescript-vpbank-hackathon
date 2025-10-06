@@ -94,7 +94,7 @@ text-3xl sm:text-4xl lg:text-5xl font-bold
 
 ### Layout Structure
 
-```
+```text
 Hero Section (full-screen)
 ├── Background Layer
 │   ├── Gradient Background
@@ -133,18 +133,21 @@ export default function HomePage() {
 ## Responsive Behavior
 
 ### Mobile (< 640px)
+
 - Single column layout for countdown timer (2x2 grid)
 - Smaller text sizes
 - Stacked CTA buttons
 - Reduced padding and margins
 
 ### Tablet (640px - 1024px)
+
 - Four-column countdown timer
 - Medium text sizes
 - Side-by-side CTA buttons
 - Balanced spacing
 
 ### Desktop (≥ 1024px)
+
 - Large text sizes for maximum impact
 - Spacious layout with generous margins
 - Enhanced animations and effects
@@ -152,11 +155,13 @@ export default function HomePage() {
 ## Animation Details
 
 ### Countdown Timer
+
 - Real-time updates every second
 - Smooth number transitions
 - Zero-padding for consistent layout
 
 ### Background Animations
+
 - **Pulse Effect**: Floating circles with staggered animation delays
 - **Bounce Animation**: Scroll indicator with infinite bounce
 - **Hover Effects**: Scale transforms on CTA buttons (105% scale)

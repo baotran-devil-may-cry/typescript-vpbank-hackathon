@@ -1,12 +1,15 @@
 # Header Component - VPBank Style Guide
 
 ## Overview
+
 This document explains how to create the exact VPBank header from the screenshot, step by step. This is a mentor guide for learning how to build professional corporate headers.
 
 ## Design Analysis
 
 ### What We're Building
+
 From the screenshot, we can see:
+
 - Dark blue/teal background (`#1e3a5f`)
 - VPBank logo on the left (red square + text)
 - "powered by aws" text next to logo
@@ -17,6 +20,7 @@ From the screenshot, we can see:
 ## Step-by-Step Implementation
 
 ### Step 1: Basic Structure
+
 ```tsx
 <header className="bg-[#1e3a5f] text-white">
   <div className="container mx-auto px-4">
@@ -30,11 +34,13 @@ From the screenshot, we can see:
 ```
 
 **Key Learning Points:**
+
 - `bg-[#1e3a5f]` - Custom Tailwind color for exact brand matching
 - `flex items-center justify-between` - Creates horizontal layout with space distribution
 - `h-14` - Sets header height (56px)
 
 ### Step 2: Left Section - Branding
+
 ```tsx
 <div className="flex items-center space-x-3">
   {/* VPBank Logo */}
@@ -54,12 +60,14 @@ From the screenshot, we can see:
 ```
 
 **Key Learning Points:**
+
 - `space-x-3` - Adds consistent spacing between logo and "powered by" text
 - `bg-red-500 rounded-sm` - Creates the red square logo
 - `text-orange-400` - AWS brand color for "aws" text
 - `text-gray-300` - Subtle color for "powered by" text
 
 ### Step 3: Center Section - Navigation
+
 ```tsx
 <nav className="hidden md:flex items-center space-x-8">
   {navItems.map((item) => (
@@ -75,12 +83,14 @@ From the screenshot, we can see:
 ```
 
 **Key Learning Points:**
+
 - `hidden md:flex` - Hidden on mobile, visible on desktop (768px+)
 - `space-x-8` - Generous spacing between navigation items
 - `hover:text-gray-300` - Subtle hover effect
 - `transition-colors duration-200` - Smooth color transitions
 
 ### Step 4: Right Section - CTA Button
+
 ```tsx
 <div className="hidden md:flex items-center">
   <Link
@@ -93,12 +103,14 @@ From the screenshot, we can see:
 ```
 
 **Key Learning Points:**
+
 - `bg-green-500` - Green color matching the screenshot
 - `rounded-full` - Creates pill-shaped button
 - `px-6 py-2` - Proper padding for button size
 - `hover:bg-green-600` - Darker green on hover
 
 ### Step 5: Mobile Menu Implementation
+
 ```tsx
 {/* Mobile menu button */}
 <div className="md:hidden">
@@ -122,6 +134,7 @@ From the screenshot, we can see:
 ```
 
 **Key Learning Points:**
+
 - `md:hidden` - Only visible on mobile
 - `bg-white/10` - Semi-transparent white for hover effect
 - `bg-[#2a4a6b]` - Darker blue for mobile menu background
@@ -130,12 +143,14 @@ From the screenshot, we can see:
 ## Color Palette Used
 
 ### Primary Colors
+
 - **Header Background**: `#1e3a5f` (VPBank dark blue)
 - **Logo Red**: `#ef4444` (Tailwind red-500)
 - **AWS Orange**: `#fb923c` (Tailwind orange-400)
 - **Register Green**: `#10b981` (Tailwind green-500)
 
 ### Text Colors
+
 - **Primary Text**: `white`
 - **Secondary Text**: `#d1d5db` (Tailwind gray-300)
 - **Hover States**: `#9ca3af` (Tailwind gray-400)
@@ -143,11 +158,13 @@ From the screenshot, we can see:
 ## Responsive Behavior
 
 ### Desktop (768px+)
+
 - Full horizontal navigation visible
 - Register button visible
 - Logo and branding fully displayed
 
 ### Mobile (<768px)
+
 - Navigation hidden, hamburger menu shown
 - Register button moved to mobile menu
 - Compact logo display
@@ -155,21 +172,25 @@ From the screenshot, we can see:
 ## Professional Tips
 
 ### 1. Exact Brand Matching
+
 - Always use exact hex colors from brand guidelines
 - Use custom Tailwind colors with `bg-[#hexcode]` syntax
 - Maintain proper contrast ratios for accessibility
 
 ### 2. Spacing and Typography
+
 - Use consistent spacing scale (Tailwind's space utilities)
 - Proper font weights for hierarchy (bold for logo, medium for nav)
 - Adequate touch targets for mobile (minimum 44px)
 
 ### 3. Interactive States
+
 - Always include hover states for better UX
 - Use smooth transitions for professional feel
 - Provide visual feedback for all interactive elements
 
 ### 4. Accessibility
+
 - Include proper ARIA labels
 - Ensure keyboard navigation works
 - Maintain color contrast standards

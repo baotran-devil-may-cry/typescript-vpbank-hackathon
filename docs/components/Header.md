@@ -70,7 +70,7 @@ const navItems: NavItem[] = [
 
 ### Layout Structure
 
-```
+```text
 Header (fixed, full-width)
 ├── Container (max-width with padding)
 │   ├── Logo (flex-shrink-0)
@@ -104,12 +104,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 ## Responsive Behavior
 
 ### Desktop (≥ 1024px)
+
 - Horizontal navigation menu visible
 - CTA button visible
 - Mobile menu button hidden
 - Logo larger size
 
 ### Mobile (< 1024px)
+
 - Navigation menu hidden
 - Hamburger menu button visible
 - CTA button hidden (available in mobile menu)
