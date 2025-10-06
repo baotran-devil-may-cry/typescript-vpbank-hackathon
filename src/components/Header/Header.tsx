@@ -38,7 +38,7 @@ export default function Header() {
           <div className="flex items-center space-x-2 lg:space-x-3 md:mr-8 lg:mr-12 xl:mr-20">
             {/* VPBank Logo: h-8 lg:h-10 responsive height (32px → 40px), w-auto maintains aspect ratio, priority optimizes above-the-fold loading */}
             <Image
-              src="/vpbank-logo.png"
+              src="https://w.ladicdn.com/s450x350/5c7362c6c417ab07e5196b05/vp-bank-20240215071600-nr1pe.png"
               alt="VPBank"
               width={120}
               height={48}
