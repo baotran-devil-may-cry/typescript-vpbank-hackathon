@@ -52,12 +52,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--vpbank-green);
+  background: #4b5563;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #008a44;
+  background: #374151;
 }
 
 /* Hide Next.js development panel (development only) */
