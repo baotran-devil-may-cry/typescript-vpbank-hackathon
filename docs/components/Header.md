@@ -8,11 +8,13 @@ The Header component provides the main navigation for the VPBank Technology Hack
 
 - **Dual Logo Display**: VPBank and AWS logos with responsive sizing
 - **Gradient Background**: Teal-700 to Green-700 gradient matching VPBank branding
+- **Sticky Navigation**: Header and divider remain visible when scrolling for persistent access
 - **Responsive Navigation**: Desktop centered layout with mobile toggle menu
 - **Mobile Innovation**: Horizontal overlay menu with inline close button
 - **Perfect Alignment**: Toggle and close buttons vertically aligned with identical sizes
 - **Smooth Animations**: 200ms transitions for all interactive elements
 - **Accessibility**: Proper ARIA labels and keyboard navigation support
+- **Visual Continuity**: Sticky divider maintains design integrity during scroll
 
 ## Implementation Details
 
@@ -67,6 +69,38 @@ const closeMenu = () => {
 - **Text**: White primary (`text-white`)
 - **Hover States**: Gray-300 (`hover:text-gray-300`)
 - **Button Hover**: Semi-transparent white (`hover:bg-white/10`)
+
+### Sticky Positioning
+
+The header and its divider use CSS sticky positioning to remain visible during page scrolling:
+
+#### Header Implementation
+
+```tsx
+<header className="sticky top-0 z-50 relative">
+```
+
+#### Divider Implementation
+
+```tsx
+<div className="sticky top-14 z-40 h-px bg-gradient-to-r from-transparent via-green-800 to-transparent">
+```
+
+**Implementation Details:**
+
+- **Header `sticky top-0 z-50`**: Header sticks to top of viewport with highest priority
+- **Divider `sticky top-14 z-40`**: Divider sticks 56px from top (header height), below header
+- **`relative`**: Maintains relative positioning for mobile menu overlay
+- **Layered Z-Index**: Header (50) > Divider (40) > Content ensures proper stacking
+
+**Benefits:**
+
+- **Enhanced UX**: Navigation and visual separator always accessible
+- **Performance**: More efficient than JavaScript scroll listeners
+- **Responsive**: Works seamlessly across all device sizes
+- **Accessibility**: Consistent navigation access improves usability
+- **Visual Continuity**: Divider maintains design integrity during scroll
+- **Professional Appearance**: Seamless header-divider connection while scrolling
 
 ### Layout Structure
 
@@ -254,7 +288,18 @@ Both toggle and close buttons are precisely aligned using:
 /* Header Container */
 .header {
   background: linear-gradient(to right, #0f766e, #15803d);  /* from-teal-700 to-green-700 */
-  position: relative;
+  position: sticky;                                          /* sticky positioning */
+  top: 0;                                                   /* stick to top of viewport */
+  z-index: 50;                                              /* layer above content and divider */
+}
+
+/* Header Divider */
+.header-divider {
+  position: sticky;                                          /* sticky positioning */
+  top: 56px;                                                /* stick below header (h-14 = 56px) */
+  z-index: 40;                                              /* layer below header, above content */
+  height: 1px;                                              /* thin line */
+  background: linear-gradient(to right, transparent, #166534, transparent); /* green gradient */
 }
 
 /* Mobile Menu Overlay */
@@ -263,7 +308,7 @@ Both toggle and close buttons are precisely aligned using:
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 60;                                              /* layer above sticky header */
   background: linear-gradient(to right, #0f766e, #15803d);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }

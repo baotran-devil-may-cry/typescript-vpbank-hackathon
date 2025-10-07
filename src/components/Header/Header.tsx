@@ -28,8 +28,8 @@ export default function Header() {
   };
 
   return (
-    // Header Container: bg-gradient-to-r creates horizontal gradient, from-teal-700 to-green-700 sets gradient colors, text-white sets default text color, relative positioning for mobile menu overlay
-    <header className="bg-gradient-to-r from-teal-700 to-green-700 text-white relative">
+    // Header Container: bg-gradient-to-r creates horizontal gradient, from-teal-700 to-green-700 sets gradient colors, text-white sets default text color, sticky positioning makes header stick to top when scrolling, top-0 positions at top of viewport, z-50 ensures header stays above other content, relative positioning for mobile menu overlay
+    <header className="bg-gradient-to-r from-teal-700 to-green-700 text-white sticky top-0 z-50 relative">
       {/* Container wrapper: container centers content with max-width, mx-auto centers horizontally, px-4 adds 16px horizontal padding */}
       <div className="container mx-auto px-4">
         {/* Main flex container: flex enables flexbox, items-center vertically centers children, justify-between spreads logos left and menu button right on mobile/tablet, md:justify-center centers all content on desktop, h-14 sets 56px height, w-full takes full width, px-4 lg:px-8 responsive padding (16px → 32px) */}
@@ -109,8 +109,8 @@ export default function Header() {
 
         {/* Mobile Navigation: Conditional rendering - only shows when isMenuOpen is true */}
         {isMenuOpen && (
-          // md:hidden ensures mobile menu only shows on mobile/tablet devices, absolute positioning for full-width overlay
-          <div className="md:hidden absolute top-full left-0 right-0 z-50">
+          // md:hidden ensures mobile menu only shows on mobile/tablet devices, absolute positioning for full-width overlay, z-[60] ensures mobile menu appears above sticky header
+          <div className="md:hidden absolute top-full left-0 right-0 z-[60]">
             {/* Mobile menu container: matches the gradient background from header, shadow-lg for depth */}
             <div className="bg-gradient-to-r from-teal-700 to-green-700 shadow-lg">
               {/* Container wrapper: matches header structure with same padding */}

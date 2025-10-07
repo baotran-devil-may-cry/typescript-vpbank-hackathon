@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      {/* Divider between Header and Descriptions */}
-      <div className="h-px bg-gradient-to-r from-transparent via-green-800 to-transparent"></div>
+      {/* Sticky Divider between Header and Descriptions - follows header when scrolling */}
+      <div className="sticky top-14 z-40 h-px bg-gradient-to-r from-transparent via-green-800 to-transparent"></div>
       <main className="flex-1">
         <Descriptions />
       </main>

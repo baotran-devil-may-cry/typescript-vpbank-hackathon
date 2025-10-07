@@ -2,7 +2,19 @@
 
 ## Overview
 
-The Header component is a fully responsive navigation bar for the VPBank Hackathon website, featuring brand logos, navigation menu, and an animated register button. Built with Next.js, TypeScript, and Tailwind CSS.
+The Header component is a fully responsive, sticky navigation bar for the VPBank Hackathon website, featuring brand logos, navigation menu, and an animated register button. Built with Next.js, TypeScript, and Tailwind CSS.
+
+## Key Features
+
+- **Sticky Navigation**: Header and divider remain visible when scrolling for persistent access
+- **Responsive Design**: Adapts to mobile, tablet, and desktop layouts
+- **Mobile Menu**: Toggle navigation for smaller screens with horizontal overlay
+- **Brand Integration**: VPBank and AWS logos with proper responsive sizing
+- **Smooth Animations**: Hover effects and 200ms transitions for all interactive elements
+- **Accessibility**: Proper ARIA labels, semantic HTML, and keyboard navigation
+- **TypeScript**: Full type safety and IntelliSense support
+- **Visual Continuity**: Sticky divider maintains design integrity during scroll
+- **Performance Optimized**: CSS-based animations and efficient positioning
 
 ## File Structure
 
@@ -60,11 +72,25 @@ const closeMenu = () => setIsMenuOpen(false);
 ### **Main Container**
 
 ```tsx
-<header className="bg-gradient-to-r from-teal-700 to-green-700 text-white">
+<header className="bg-gradient-to-r from-teal-700 to-green-700 text-white sticky top-0 z-50 relative">
 ```
 
-- Gradient background from teal to green
-- Full-width header with white text
+- **Gradient Background**: Horizontal gradient from teal-700 to green-700 matching VPBank branding
+- **Text Color**: White text for optimal contrast against dark gradient
+- **Sticky Positioning**: `sticky top-0` keeps header visible when scrolling
+- **Z-Index Priority**: `z-50` ensures header stays above page content and divider
+- **Relative Context**: `relative` positioning for mobile menu overlay positioning
+
+### **Sticky Divider**
+
+```tsx
+<div className="sticky top-14 z-40 h-px bg-gradient-to-r from-transparent via-green-800 to-transparent">
+```
+
+- **Coordinated Positioning**: `sticky top-14` positions divider exactly below header (56px)
+- **Layered Z-Index**: `z-40` places divider below header but above content
+- **Visual Separator**: 1px height with green gradient for subtle brand accent
+- **Seamless Integration**: Maintains visual connection with header during scroll
 
 ### **Content Layout (Responsive 3-Section Design)**
 
@@ -352,3 +378,39 @@ className="md:ml-8 lg:ml-12 xl:ml-20"  // Register button
 - **Modern browsers**: Full support for CSS Grid, Flexbox, and transforms
 - **Fallbacks**: Sans-serif font fallback for Montserrat
 - **Progressive enhancement**: Core functionality works without JavaScript
+
+## Usage
+
+### Basic Implementation
+
+```tsx
+import Header from '@/components/Header';
+
+export default function HomePage() {
+  return (
+    <div>
+      <Header />
+      {/* Sticky Divider - positioned right after header */}
+      <div className="sticky top-14 z-40 h-px bg-gradient-to-r from-transparent via-green-800 to-transparent"></div>
+      <main>
+        {/* Page content */}
+      </main>
+    </div>
+  );
+}
+```
+
+### Sticky Positioning Benefits
+
+- **Always Accessible**: Navigation remains available without scrolling to top
+- **Professional UX**: Maintains visual hierarchy and brand consistency
+- **Performance Efficient**: CSS-based solution without JavaScript scroll listeners
+- **Mobile Friendly**: Works seamlessly across all device sizes
+- **Visual Continuity**: Divider maintains design integrity during scroll
+
+### Integration Notes
+
+- Place the sticky divider immediately after the Header component
+- Ensure proper z-index layering (Header: 50, Divider: 40, Content: default)
+- The divider uses `top-14` (56px) to match the header height (`h-14`)
+- Mobile menu uses `z-[60]` to appear above both header and divider
