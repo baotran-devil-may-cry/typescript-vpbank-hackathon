@@ -28,8 +28,8 @@ export default function Header() {
   };
 
   return (
-    // Header Container: bg-gradient-to-r creates horizontal gradient, from-teal-700 to-green-700 sets gradient colors, text-white sets default text color
-    <header className="bg-gradient-to-r from-teal-700 to-green-700 text-white">
+    // Header Container: bg-gradient-to-r creates horizontal gradient, from-teal-700 to-green-700 sets gradient colors, text-white sets default text color, relative positioning for mobile menu overlay
+    <header className="bg-gradient-to-r from-teal-700 to-green-700 text-white relative">
       {/* Container wrapper: container centers content with max-width, mx-auto centers horizontally, px-4 adds 16px horizontal padding */}
       <div className="container mx-auto px-4">
         {/* Main flex container: flex enables flexbox, items-center vertically centers children, justify-between spreads logos left and menu button right on mobile/tablet, md:justify-center centers all content on desktop, h-14 sets 56px height, w-full takes full width, px-4 lg:px-8 responsive padding (16px → 32px) */}
@@ -86,8 +86,8 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              // p-2 adds 8px padding, rounded-md medium border radius, text-white white text color, hover:bg-white/10 semi-transparent white background on hover, transition-colors duration-200 smooth color transition over 200ms
-              className="p-2 rounded-md text-white hover:bg-white/10 transition-colors duration-200"
+              // p-2 adds 8px padding, rounded-md medium border radius, text-white white text color, hover:bg-white/10 semi-transparent white background on hover, transition-colors duration-200 smooth color transition over 200ms, mr-4 adds 16px right margin to align with close button
+              className="p-2 rounded-md text-white hover:bg-white/10 transition-colors duration-200 mr-4"
               aria-label="Toggle menu" // Accessibility: screen reader description
             >
               {/* SVG Icon: w-6 h-6 sets 24px size, fill="none" no fill color, stroke properties define line appearance, viewBox defines coordinate system, stroke="currentColor" uses parent text color */}
@@ -100,12 +100,8 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {/* Conditional icon rendering: X icon when menu is open, hamburger icon when closed */}
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" /> // X icon paths
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" /> // Hamburger icon paths (3 horizontal lines)
-                )}
+                {/* Always show hamburger icon since close button is now inside the mobile menu */}
+                <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
@@ -113,31 +109,49 @@ export default function Header() {
 
         {/* Mobile Navigation: Conditional rendering - only shows when isMenuOpen is true */}
         {isMenuOpen && (
-          // md:hidden ensures mobile menu only shows on mobile/tablet devices
-          <div className="md:hidden">
-            {/* Mobile menu container: px-2 horizontal padding 8px, pt-2 top padding 8px, pb-3 bottom padding 12px, space-y-1 vertical spacing 4px between children, bg-[#2a4a6b] custom dark blue background, rounded-lg large border radius, mt-2 top margin 8px */}
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#2a4a6b] rounded-lg mt-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  // nav-link applies custom CSS class, block makes full-width clickable area, px-3 py-2 padding 12px horizontal 8px vertical, text-white white text, hover:text-gray-300 gray text on hover, hover:bg-white/10 semi-transparent background on hover, rounded-md medium border radius, font-medium medium font weight, transition-colors duration-200 smooth color transition
-                  className="nav-link block px-3 py-2 text-white hover:text-gray-300 hover:bg-white/10 rounded-md font-medium transition-colors duration-200"
-                  onClick={closeMenu} // Closes mobile menu when nav item is clicked
+          // md:hidden ensures mobile menu only shows on mobile/tablet devices, absolute positioning for full-width overlay
+          <div className="md:hidden absolute top-full left-0 right-0 z-50">
+            {/* Mobile menu container: matches the gradient background from header, shadow-lg for depth */}
+            <div className="bg-gradient-to-r from-teal-700 to-green-700 shadow-lg">
+              {/* Container wrapper: matches header structure with same padding */}
+              <div className="container mx-auto px-4">
+                {/* Navigation items container: matches header flex structure with same padding */}
+                <div className="flex justify-between items-center py-6 px-4 lg:px-8">
+                {/* Navigation items: flex layout with centered items and spacing */}
+                <div className="flex justify-center space-x-8 flex-1">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      // nav-link applies custom CSS class, text-white white text, hover:text-gray-300 gray text on hover, font-medium medium font weight, transition-colors duration-200 smooth color transition, text-lg larger text for mobile
+                      className="nav-link text-white hover:text-gray-300 font-medium transition-colors duration-200 text-lg"
+                      onClick={closeMenu} // Closes mobile menu when nav item is clicked
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Close button: positioned at the right side of the mobile menu */}
+                <button
+                  onClick={closeMenu}
+                  className="text-white hover:text-gray-300 hover:bg-white/10 transition-colors duration-200 p-2 rounded-md mr-4"
+                  aria-label="Close menu"
                 >
-                  {item.label}
-                </Link>
-              ))}
-              {/* Mobile Register Button Container: pt-2 adds top padding 8px for separation */}
-              <div className="pt-2">
-                <Link
-                  href="#register"
-                  // block full-width element, w-full takes full width, text-center centers text, bg-green-500 green background, hover:bg-green-600 darker green on hover, text-white white text, px-3 py-2 padding 12px horizontal 8px vertical, rounded-full fully rounded corners, font-medium medium font weight, transition-colors duration-200 smooth color transition
-                  className="block w-full text-center bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-full font-medium transition-colors duration-200"
-                  onClick={closeMenu} // Closes mobile menu when register button is clicked
-                >
-                  Register
-                </Link>
+                  {/* X icon: w-6 h-6 sets 24px size to match toggle button, strokeWidth="2" for normal thickness */}
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                </div>
               </div>
             </div>
           </div>
