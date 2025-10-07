@@ -1,0 +1,35 @@
+/* Footer Title Styles */
+.footer-title {
+  font-family: 'Montserrat', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: rgb(57, 255, 146);
+  text-align: center;
+}
+
+/* Social Link Styles */
+.social-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-link:hover {
+  color: rgb(191, 219, 254); /* blue-200 */
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .social-link span {
+    font-size: 0.875rem; /* text-sm */
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-link span {
+    font-size: 1rem; /* text-base */
+  }
+}
