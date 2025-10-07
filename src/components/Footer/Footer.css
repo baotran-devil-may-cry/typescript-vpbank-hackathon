@@ -6,18 +6,33 @@
   text-align: center;
 }
 
+/* Contact Title Styles */
+.contact-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem; /* text-[22px] */
+}
+
 /* Social Link Styles */
 .social-link {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  font-size: 0.9375rem;
   line-height: 1.6;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); /* white text */
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
+/* Light blue color for icons only */
+.social-link svg {
+  color: rgb(147, 197, 253); /* light blue icons */
+}
+
 .social-link:hover {
-  color: rgb(191, 219, 254); /* blue-200 */
+  color: rgb(134, 239, 172); /* light green */
   transform: translateY(-1px);
 }
 

@@ -59,3 +59,17 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #008a44;
 }
+
+/* Hide Next.js development panel (development only) */
+[data-nextjs-toast-errors-parent],
+[data-nextjs-dialog-overlay],
+.__next-dev-overlay,
+#__next-dev-overlay,
+[data-nextjs-dev-overlay] {
+  display: none !important;
+}
+
+/* Hide floating Next.js dev tools */
+div[style*="position: fixed"][style*="z-index: 9000"] {
+  display: none !important;
+}
