@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+// Force rebuild for CSS fix
 
 export const metadata: Metadata = {
   title: "VPBank Technology Hackathon 2025",
