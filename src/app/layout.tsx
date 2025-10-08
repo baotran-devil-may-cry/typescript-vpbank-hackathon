@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 import "./globals.css";
 // Force rebuild for CSS fix
 
@@ -23,6 +25,8 @@ export default function RootLayout({
     <html lang="vi">
       <body className="antialiased">
         {children}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
