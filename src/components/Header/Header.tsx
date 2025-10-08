@@ -116,15 +116,15 @@ export default function Header() {
               {/* Container wrapper: matches header structure with same padding */}
               <div className="container mx-auto px-4">
                 {/* Navigation items container: matches header flex structure with same padding */}
-                <div className="flex justify-between items-center py-6 px-4 lg:px-8">
-                {/* Navigation items: flex layout with centered items and spacing */}
-                <div className="flex justify-center space-x-8 flex-1">
+                <div className="flex justify-between items-center py-6 px-2 sm:px-4 lg:px-8">
+                {/* Navigation items: flex layout with centered items and responsive spacing */}
+                <div className="flex justify-center space-x-6 sm:space-x-8 md:space-x-10 flex-1 px-2">
                   {navItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      // nav-link applies custom CSS class, text-white white text, hover:text-gray-300 gray text on hover, font-medium medium font weight, transition-colors duration-200 smooth color transition, text-lg larger text for mobile
-                      className="nav-link text-white hover:text-gray-300 font-medium transition-colors duration-200 text-lg"
+                      // nav-link applies custom CSS class, text-white white text, hover:text-gray-300 gray text on hover, font-medium medium font weight, transition-colors duration-200 smooth color transition, text-sm sm:text-base md:text-lg responsive text size, whitespace-nowrap prevents text wrapping, text-center centers text, flex-shrink-0 prevents shrinking, px-2 adds horizontal padding
+                      className="nav-link text-white hover:text-gray-300 font-medium transition-colors duration-200 text-sm sm:text-base md:text-lg whitespace-nowrap text-center flex-shrink-0 px-2"
                       onClick={closeMenu} // Closes mobile menu when nav item is clicked
                     >
                       {item.label}
